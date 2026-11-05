@@ -23,7 +23,7 @@ success or regional availability.
 
 ## Prerequisites
 
-- [Node.js 24 LTS](https://nodejs.org/) and npm 11 are recommended.
+- [Node.js 24 LTS](https://nodejs.org/) (24.15.0 or newer) and npm 11 are recommended.
 - [Git](https://git-scm.com/) and a GitHub account.
 - For deployment: App Service Builder Private Preview access, an authorized
   Azure subscription, and an existing resource group in a supported preview
@@ -31,9 +31,11 @@ success or regional availability.
 - Optional: [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/installing-powershell)
   for the endpoint verification script.
 
-The lockfile contains Angular and Angular CLI **21.2.24**, TypeScript **5.9.3**,
-and Vitest **4.1.11**. Keep `package-lock.json` and use `npm ci` to install the
-locked versions rather than updating dependencies during setup.
+The lockfile contains Angular **22.2.4**, Angular CLI **22.2.5**, TypeScript
+**6.0.3**, and Vitest **5.0.5**. Angular 22.2 requires TypeScript **>=6.0 <6.1**;
+keep TypeScript within that range when updating dependencies. Keep
+`package-lock.json` and use `npm ci` to install the locked versions rather than
+updating dependencies during setup.
 
 ## Run locally
 
