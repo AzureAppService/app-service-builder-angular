@@ -1,0 +1,11 @@
+components:
+  - name: site
+    role: static
+    platform: nodejs
+    build: >-
+      npm ci
+      && npm run build
+      && mkdir -p "$DESTINATION_DIR/dist/spa-angular/browser"
+      && cp -r dist/spa-angular/browser/. "$DESTINATION_DIR/dist/spa-angular/browser/"
+    output: dist/spa-angular/browser
+    path: /
