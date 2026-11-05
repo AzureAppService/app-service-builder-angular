@@ -32,10 +32,11 @@ success or regional availability.
   for the endpoint verification script.
 
 The lockfile contains Angular **22.2.4**, Angular CLI **22.2.5**, TypeScript
-**6.0.3**, and Vitest **5.0.5**. Angular 22.2 requires TypeScript **>=6.0 <6.1**;
+**6.0.3**, and Vitest **5.1.0**. Angular 22.2 requires TypeScript **>=6.0 <6.1**;
 keep TypeScript within that range when updating dependencies. Keep
 `package-lock.json` and use `npm ci` to install the locked versions rather than
-updating dependencies during setup.
+updating dependencies during setup. Dependabot ignores TypeScript **>=6.1**
+until Angular supports it; revisit that restriction when upgrading Angular.
 
 ## Run locally
 
