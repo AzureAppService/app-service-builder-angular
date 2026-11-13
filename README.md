@@ -12,6 +12,20 @@ worked. The renamed repository must still be deployed and verified in your
 authorized preview environment. Local checks do not establish cloud deployment
 success or regional availability.
 
+## Sample preview
+
+![Angular root page with deep-route navigation, an interactive counter, inline static health feedback, and customization help](docs/images/sample.png)
+
+Rendered locally at `/` with the production build configuration and sample
+settings. This screenshot is not evidence of an Azure deployment.
+
+The starter UI lives at `/`. **Check static health** reads `/health.json` and
+displays the result in place, including failures and retry guidance. A reachable
+static file is not a backend health probe or Azure deployment status.
+**Customize this sample** explains which files to edit in your fork; it does
+not guess your repository or app URL. Framework and App Service Builder
+documentation are labeled separately.
+
 ## Features
 
 - Angular landing page with an interactive signal-based counter.
