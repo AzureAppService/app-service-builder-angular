@@ -30,6 +30,9 @@ describe('App', () => {
     expect(compiled.querySelector('.eyebrow')?.textContent).toContain(
       'App Service Builder / Angular',
     );
+    const docs = compiled.querySelector('nav[aria-label="Documentation"]');
+    expect(docs?.querySelector('a[href="https://angular.dev/"]')?.textContent).toBe('Angular documentation');
+    expect(docs?.querySelector('a[href="https://builder.appservice.azure.com/docs/"]')?.textContent).toBe('App Service Builder documentation');
   });
 
   it('should increment the interaction counter', async () => {

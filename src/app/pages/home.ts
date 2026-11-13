@@ -5,7 +5,16 @@ import { RouterLink } from '@angular/router';
   selector: 'app-home',
   imports: [RouterLink],
   template: `
-    <main>
+    <main class="sample-sheet">
+      <header class="sample-header">
+        <a class="sample-brand" routerLink="/"><img src="/brand/builder.svg" alt="" width="32" height="32">App Service Builder</a>
+        <nav aria-label="Documentation">
+          <a href="https://angular.dev/">Angular documentation</a>
+          <a href="https://builder.appservice.azure.com/docs/">App Service Builder documentation</a>
+        </nav>
+      </header>
+      <div class="sample-content">
+      <div class="ecosystem-logo"><img class="wordmark" src="/brand/angular.png" alt="Angular" width="156" height="52"></div>
       <p class="eyebrow">App Service Builder / Angular</p>
       <h1>Angular SPA is running</h1>
       <p>
@@ -36,13 +45,16 @@ import { RouterLink } from '@angular/router';
       <details>
         <summary>Customize this sample</summary>
         <p>In your fork, edit the home page in <code>src/app/pages/home.ts</code>
-          and the styles in <code>src/styles.css</code>. Commit your changes and
+          and the visual-family styles in <code>public/brand/family.v1.css</code>. Commit your changes and
           deploy your fork through your Builder App.</p>
       </details>
-      <nav class="documentation" aria-label="Documentation">
-        <a href="https://angular.dev/">Framework documentation</a>
-        <a href="https://builder.appservice.azure.com/docs/">App Service Builder documentation</a>
-      </nav>
+      <details>
+        <summary>Logo sources &amp; notices</summary>
+        <p>Unmodified <a href="https://angular.dev/press-kit">Angular press-kit artwork</a>
+          identifies this framework. Angular is a trademark of Google LLC.
+          App Service Builder uses its supplied official mark. No endorsement implied.</p>
+      </details>
+      </div>
     </main>
   `,
 })

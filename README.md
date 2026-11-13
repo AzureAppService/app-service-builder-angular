@@ -16,8 +16,21 @@ success or regional availability.
 
 ![Angular root page with deep-route navigation, an interactive counter, inline static health feedback, and customization help](docs/images/sample.png)
 
-Rendered locally at `/` with the production build configuration and sample
-settings. This screenshot is not evidence of an Azure deployment.
+**LOCAL — Microsoft Edge, 1440px desktop, root `/`, production static build.**
+This screenshot is not evidence of an Azure deployment.
+
+The Angular split composition keeps its signal counter, Angular Router paths,
+and inline static-file health check. Edit `src/app/pages/home.ts` for content
+and `public/brand/family.v1.css` for the visual family; baseline styles remain
+in `src/styles.css`.
+
+### Logo provenance
+
+`public/brand/builder.svg` is the supplied official App Service Builder mark.
+`public/brand/angular.png` is the unmodified [official Angular gradient wordmark](https://angular.dev/assets/images/press-kit/angular_wordmark_gradient.png)
+from the [Angular press kit](https://angular.dev/press-kit).
+Angular is a trademark of Google LLC. Logos identify the stack; no endorsement
+is implied.
 
 The starter UI lives at `/`. **Check static health** reads `/health.json` and
 displays the result in place, including failures and retry guidance. A reachable
