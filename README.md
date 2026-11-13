@@ -1,7 +1,7 @@
 # App Service Builder: Angular sample
 
 A standalone Angular single-page application with Angular Router for
-[Azure App Service Builder](https://builderapps.azure.com/docs/). The
+[Azure App Service Builder](https://builder.appservice.azure.com/docs/). The
 deployment consists only of static HTML, JavaScript, CSS, and JSON. There is
 no backend, database, external service, or hosted Angular development server.
 
@@ -11,6 +11,33 @@ was successfully deployed with the included manifest and its tested links
 worked. The renamed repository must still be deployed and verified in your
 authorized preview environment. Local checks do not establish cloud deployment
 success or regional availability.
+
+## Sample preview
+
+![Angular root page with deep-route navigation, an interactive counter, inline static health feedback, and customization help](docs/images/sample.png)
+
+**LOCAL — Microsoft Edge, 1440px desktop, root `/`, production static build.**
+This screenshot is not evidence of an Azure deployment.
+
+The Angular split composition keeps its signal counter, Angular Router paths,
+and inline static-file health check. Edit `src/app/pages/home.ts` for content
+and `public/brand/family.v1.css` for the visual family; baseline styles remain
+in `src/styles.css`.
+
+### Logo provenance
+
+`public/brand/builder.svg` is the supplied official App Service Builder mark.
+`public/brand/angular.png` is the unmodified [official Angular gradient wordmark](https://angular.dev/assets/images/press-kit/angular_wordmark_gradient.png)
+from the [Angular press kit](https://angular.dev/press-kit).
+Angular is a trademark of Google LLC. Logos identify the stack; no endorsement
+is implied.
+
+The starter UI lives at `/`. **Check static health** reads `/health.json` and
+displays the result in place, including failures and retry guidance. A reachable
+static file is not a backend health probe or Azure deployment status.
+**Customize this sample** explains which files to edit in your fork; it does
+not guess your repository or app URL. Framework and App Service Builder
+documentation are labeled separately.
 
 ## Features
 
@@ -158,7 +185,7 @@ manifest at the repository root; the original deployment required it.
 
 ## Deploy your fork through Builder Portal
 
-Follow the [Portal quickstart](https://builderapps.azure.com/docs/quickstarts/portal/)
+Follow the [Portal quickstart](https://builder.appservice.azure.com/docs/quickstarts/portal/)
 for your authorized Private Preview environment:
 
 1. Commit and push the sample to the `main` branch of your GitHub repository.
@@ -197,9 +224,9 @@ Deleting the app does not delete your GitHub repository or local clone.
 
 ## Resources and contributions
 
-- [App Service Builder documentation](https://builderapps.azure.com/docs/)
-- [Sample catalog](https://builderapps.azure.com/docs/samples/)
-- [Manifest guide](https://builderapps.azure.com/docs/guides/builder-yaml/)
+- [App Service Builder documentation](https://builder.appservice.azure.com/docs/)
+- [Sample catalog](https://builder.appservice.azure.com/docs/samples/)
+- [Manifest guide](https://builder.appservice.azure.com/docs/guides/builder-yaml/)
 - [Contributing](CONTRIBUTING.md)
 - [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 - [Security reporting](SECURITY.md)

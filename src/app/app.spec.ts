@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { App } from './app';
 import { routes } from './app.routes';
+import { vi } from 'vitest';
 
 describe('App', () => {
   beforeEach(async () => {
@@ -29,6 +30,9 @@ describe('App', () => {
     expect(compiled.querySelector('.eyebrow')?.textContent).toContain(
       'App Service Builder / Angular',
     );
+    const docs = compiled.querySelector('nav[aria-label="Documentation"]');
+    expect(docs?.querySelector('a[href="https://angular.dev/"]')?.textContent).toBe('Angular documentation');
+    expect(docs?.querySelector('a[href="https://builder.appservice.azure.com/docs/"]')?.textContent).toBe('App Service Builder documentation');
   });
 
   it('should increment the interaction counter', async () => {
@@ -38,13 +42,44 @@ describe('App', () => {
     await fixture.whenStable();
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    const button = compiled.querySelector<HTMLButtonElement>('button');
+    const button = Array.from(compiled.querySelectorAll('button')).find(
+      (candidate) => candidate.textContent?.includes('Interaction count:'),
+    );
     expect(button).not.toBeNull();
     expect(button?.textContent).toContain('Interaction count: 0');
     button?.click();
     await fixture.whenStable();
     fixture.detectChanges();
     expect(button?.textContent).toContain('Interaction count: 1');
+  });
+
+  it('should check static health inline and allow retry after failure', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce(
+      new Response('{"status":"ok","app":"app-service-builder-angular"}'),
+    ).mockResolvedValueOnce(new Response('Unavailable', { status: 503 }));
+    try {
+      const fixture = TestBed.createComponent(App);
+      await TestBed.inject(Router).navigateByUrl('/');
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const compiled = fixture.nativeElement as HTMLElement;
+      const button = Array.from(compiled.querySelectorAll('button')).find(
+        (candidate) => candidate.textContent?.includes('Check static health'),
+      )!;
+      button.click();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(compiled.querySelector('[role="status"]')?.textContent).toContain('file serving, not a running backend');
+      expect(fetchMock).toHaveBeenCalledWith('/health.json', expect.objectContaining({ cache: 'no-store' }));
+      expect(button.disabled).toBe(false);
+      button.click();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(compiled.querySelector('[role="status"]')?.textContent).toContain('check failed');
+      expect(button.disabled).toBe(false);
+    } finally {
+      fetchMock.mockRestore();
+    }
   });
 
   it('should render the deep route', async () => {
