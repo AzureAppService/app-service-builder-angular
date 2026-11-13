@@ -1,7 +1,7 @@
 # App Service Builder: Angular sample
 
 A standalone Angular single-page application with Angular Router for
-[Azure App Service Builder](https://builderapps.azure.com/docs/). The
+[Azure App Service Builder](https://builder.appservice.azure.com/docs/). The
 deployment consists only of static HTML, JavaScript, CSS, and JSON. There is
 no backend, database, external service, or hosted Angular development server.
 
@@ -172,7 +172,7 @@ manifest at the repository root; the original deployment required it.
 
 ## Deploy your fork through Builder Portal
 
-Follow the [Portal quickstart](https://builderapps.azure.com/docs/quickstarts/portal/)
+Follow the [Portal quickstart](https://builder.appservice.azure.com/docs/quickstarts/portal/)
 for your authorized Private Preview environment:
 
 1. Commit and push the sample to the `main` branch of your GitHub repository.
@@ -211,9 +211,9 @@ Deleting the app does not delete your GitHub repository or local clone.
 
 ## Resources and contributions
 
-- [App Service Builder documentation](https://builderapps.azure.com/docs/)
-- [Sample catalog](https://builderapps.azure.com/docs/samples/)
-- [Manifest guide](https://builderapps.azure.com/docs/guides/builder-yaml/)
+- [App Service Builder documentation](https://builder.appservice.azure.com/docs/)
+- [Sample catalog](https://builder.appservice.azure.com/docs/samples/)
+- [Manifest guide](https://builder.appservice.azure.com/docs/guides/builder-yaml/)
 - [Contributing](CONTRIBUTING.md)
 - [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 - [Security reporting](SECURITY.md)
